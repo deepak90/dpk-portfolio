@@ -1,0 +1,153 @@
+:root {
+    --tag-container-color1: #88cafc;
+    --tag-container-color2: #e0e9ee;
+    --tag-container-color3: #cdd7dd;
+    --tag-color: #f6f7f8;
+    --tag-hover-color: #8200ff;
+    --text-color: #211a1e;
+    --navbar-color: #6004ba;
+}
+
+/* BODY */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    margin-bottom: 0;
+    background: var(--navbar-color);
+    border-radius: 0px;
+}
+.navbar a {
+    color: #f7fff7;
+}
+.navbar li > a:hover,
+.navbar li > a:focus {
+    background: #f7fff7;
+    color: var(--text-color);
+}
+
+/* HERO */
+.hero-spacer {
+    background: var(--tag-hover-color);
+    background-image: url('./images/building2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: darken;
+    color: #f7fff7;
+    border-radius: 0;
+}
+
+.hero-title {
+    font-family: 'Pacifico', cursive;
+}
+
+/* TAGS */
+
+.tag-container {
+    margin: 0 0 3rem 0;
+    background: var(--tag-container-color1);
+    background: linear-gradient(
+        to bottom,
+        var(--tag-container-color1) 0%,
+        var(--tag-container-color2) 0%,
+        var(--tag-container-color3) 100%
+    );
+    display: flex;
+    justify-content: center;
+}
+
+.tags {
+    list-style: none;
+    overflow: hidden;
+    padding: 0;
+}
+
+.tag {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+    border: none;
+    background: var(--tag-color);
+    border-radius: 5px 0 0 5px;
+    color: var(--text-color);
+    height: 2rem;
+    line-height: 2rem;
+    padding: 0 2rem 0 1rem;
+    position: relative;
+    margin: 1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+    text-transform: uppercase;
+    font-size: x-small;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.tag:before {
+    border: 0.5px solid #888;
+    border-radius: 10px;
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+    content: '';
+    width: 10px;
+    height: 10px;
+    right: 0px;
+    position: absolute;
+    top: 10px;
+    background: var(--tag-container-color1);
+    background: linear-gradient(
+        to bottom,
+        var(--tag-container-color1) 0%,
+        var(--tag-container-color2) 0%,
+        var(--tag-container-color3) 100%
+    );
+    transition: all 0.2s ease-in-out;
+}
+.tag:focus {
+    outline: none;
+}
+
+.tag[data-active='active']::before,
+.tag[data-active='active']:hover::before {
+    background: #81fbb8;
+    background: -moz-linear-gradient(to right, #81fbb8 0%, #28c76f 100%);
+    background: -webkit-linear-gradient(to right, #81fbb8 0%, #28c76f 100%);
+    background: linear-gradient(to right, #81fbb8 0%, #28c76f 100%);
+}
+
+.tag::after {
+    background: transparent;
+    border-bottom: 1rem solid transparent;
+    border-left: 10px solid #f6f7f8;
+    border-top: 1rem solid transparent;
+    content: '';
+    position: absolute;
+    right: -10px;
+    top: 0;
+    transition: all 0.2s ease-in-out;
+}
+.tag:hover,
+.tag[data-active='active'] {
+    background: var(--tag-hover-color);
+    color: #fff;
+}
+
+.tag:hover::before {
+    background: var(--tag-container-color1);
+    background: linear-gradient(
+        to bottom,
+        var(--tag-container-color1) 0%,
+        var(--tag-container-color2) 0%,
+        var(--tag-container-color3) 100%
+    );
+    box-shadow: inset 0px -1px rgba(0, 0, 0, 0.25);
+}
+
+.tag[data-active='active']::after,
+.tag:hover::after {
+    transition: all 0.2s ease-in-out;
+    border-left-color: var(--tag-hover-color);
+}
